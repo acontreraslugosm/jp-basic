@@ -16,7 +16,7 @@ add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_style('animate');
 
 	// hover.css
-	wp_register_style('hover', get_stylesheet_directory_uri().'/css/hover-min.css', array('bootstrap', 'animate'), '2.0.1');
+	wp_register_style('hover', get_bloginfo('template_url') . '/css/hover-min.css', array('bootstrap', 'animate'), '2.0.1');
 	wp_enqueue_style('hover');
 
 	// Font Awesome
@@ -26,17 +26,23 @@ add_action('wp_enqueue_scripts', function () {
 	// jQuery Form
 	wp_enqueue_script('jquery-form');
 
-	// Theme
-	wp_register_style('bs-text-align', get_stylesheet_directory_uri() . '/css/bootstrap-text-align.css', array('bootstrap'), '1.0');
+	// Bootstrap complemetary text align
+	wp_register_style('bs-text-align', get_bloginfo('template_url') . '/css/bootstrap-text-align.css', array('bootstrap'), '1.0');
 	wp_enqueue_style('bs-text-align');
 
 	// Wordpress Core
-	wp_register_style('wordpress-core', get_stylesheet_directory_uri() . '/css/wordpress-core.css', array('bootstrap','bs-text-align'), '1.0');
+	wp_register_style('wordpress-core', get_bloginfo('template_url') . '/css/wordpress-core.css', array('bootstrap', 'bs-text-align'), '1.0');
 	wp_enqueue_style('wordpress-core');
 
 	// Theme
-	wp_register_style('theme', get_stylesheet_uri(), array('animate', 'woocommerce-general'), '1.0');
-	wp_enqueue_style('theme');
+	wp_register_style('main-theme', get_bloginfo('template_url') . '/style.css', array(), '1.0');
+	wp_enqueue_style('main-theme');
+
+	if (is_child_theme()) {
+		// Theme
+		wp_register_style('theme', get_stylesheet_uri(), array('animate'), '1.0');
+		wp_enqueue_style('theme');
+	}
 });
 
 // Full theme supports
