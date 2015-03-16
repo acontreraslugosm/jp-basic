@@ -25,6 +25,8 @@ add_action('wp_enqueue_scripts', function () {
 
 	// jQuery Form
 	wp_enqueue_script('jquery-form');
+	// Add defer atribute
+  do_action('defer_script', 'jquery-form');
 
 	// Bootstrap complemetary text align
 	wp_register_style('bs-text-align', get_template_directory_uri() . '/css/bootstrap-text-align.css', array('bootstrap'), '1.0');
