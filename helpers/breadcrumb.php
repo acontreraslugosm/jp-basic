@@ -1,6 +1,6 @@
 <?php
 /**
- * 
+ *
  * @return type
  */
 function the_breadcrumb() {
@@ -23,12 +23,12 @@ function the_breadcrumb() {
 			$post_ancestor = get_post($ancestor_id);
 			$items[$post_ancestor->post_title] = get_permalink($post_ancestor->ID);
 		}
-		$active = sprintf('<li class="active">%s</li>', get_the_title());
+		$active = get_the_title();
 	} elseif (is_post_type_archive()) {
 
 		$post_type = get_post_type();
 		$post_type_object = get_post_type_object($post_type);
-		$active = sprintf('<li class="active">%s</li>', $post_type_object->labels->name);
+		$active = $post_type_object->labels->name;
 	} elseif (is_tax()) {
 
 		if (!is_taxonomy_hierarchical(get_query_var('taxonomy'))) {
@@ -54,11 +54,11 @@ function the_breadcrumb() {
 		}
 	}
 
-	$breadcrumb = '<ol class="breadcrumb">';
+	$breadcrumb = '<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">';
 	foreach ($items as $item => $value) {
-		$breadcrumb .= sprintf('<li><a href="%s">%s</a></li>', $value, $item);
+		$breadcrumb .= sprintf('<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="%s" itemprop="item"><span itemprop="name">%s</span></a></li>', $value, $item);
 	}
-	$breadcrumb .= $active;
+	$breadcrumb .= (!empty($active)) ? sprintf('<li class="active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">%s</li>', $active) : '';
 	$breadcrumb .= '</ol>';
 
 	echo $breadcrumb;
