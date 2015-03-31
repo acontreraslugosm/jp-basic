@@ -25,8 +25,13 @@ add_action('wp_enqueue_scripts', function () {
 
 	// jQuery Form
 	wp_enqueue_script('jquery-form');
+
+	// jQuery Bootstrap Alerts
+	wp_register_script('bootstrap-alerts', get_template_directory_uri() . '/js/bootstrap-alerts.js', array('jquery', 'bootstrap'), '1.0.0', true);
+	wp_enqueue_script('bootstrap-alerts');
+
 	// Add defer atribute
-  do_action('defer_script', 'jquery-form');
+	do_action('defer_script', array('jquery-form','bootstrap-alerts'));
 
 	// Bootstrap complemetary text align
 	wp_register_style('bs-text-align', get_template_directory_uri() . '/css/bootstrap-text-align.css', array('bootstrap'), '1.0');
