@@ -33,11 +33,11 @@ function the_breadcrumb() {
 
 		if (!is_taxonomy_hierarchical(get_query_var('taxonomy'))) {
 			$term_object = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
-			$active = sprintf('<li class="active">%s</li>', $term_object->name);
+			$active = $term_object->name;
 		} else {
 			$taxonomy = get_query_var('taxonomy');
 			$term_object = get_term_by('slug', get_query_var('term'), $taxonomy);
-			$active = sprintf('<li class="active">%s</li>', $term_object->name);
+			$active = $term_object->name;
 
 			$hierarchy_terms = array();
 			$term_ancestor_id = (int) $term_object->parent;
