@@ -6,7 +6,7 @@
 function the_breadcrumb() {
 	if (is_home()) return;
 
-	$items = array('Inicio' => get_option('home'));
+	$items = array('Inicio' => home_url());
 
 	if (is_singular()) {
 
