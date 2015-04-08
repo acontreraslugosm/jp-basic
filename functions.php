@@ -2,13 +2,13 @@
 
 add_action('wp_enqueue_scripts', function () {
 	// Bootstrap
-	wp_register_style('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css', array(), '3.3.2');
+	wp_register_style('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', array(), '3.3.4');
 	wp_enqueue_style('bootstrap');
-	wp_register_script('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js', array('jquery'), '3.3.2', true);
+	wp_register_script('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js', array('jquery'), '3.3.4', true);
 	wp_enqueue_script('bootstrap');
 
 	// Bootstrap Theme
-	wp_register_style('bootstrap-theme', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css', array('bootstrap'), '3.3.2');
+	wp_register_style('bootstrap-theme', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css', array('bootstrap'), '3.3.4');
 	wp_enqueue_style('bootstrap-theme');
 
 	// Animate.css
@@ -27,7 +27,7 @@ add_action('wp_enqueue_scripts', function () {
 	wp_enqueue_script('jquery-form');
 
 	// jQuery Bootstrap Alerts
-	wp_register_script('bootstrap-alerts', get_template_directory_uri() . '/js/bootstrap-alerts.js', array('jquery', 'bootstrap'), '1.0.0', true);
+	wp_register_script('bootstrap-alerts', get_template_directory_uri() . '/js/bootstrap-alerts.js', array('jquery', 'bootstrap'), '1.0.2', true);
 	wp_enqueue_script('bootstrap-alerts');
 
 	// Add defer atribute
