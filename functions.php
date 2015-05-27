@@ -1,23 +1,42 @@
 <?php
 
+if (!defined($name)) {
+	define('THEME_URI', get_template_directory_uri());
+}
+
 add_action('wp_enqueue_scripts', function () {
+
+	/* Styles */
+	// Animate.css
+	wp_register_style('animate', apply_filters('css_cdn_uri', THEME_URI . '/css/animate.min.css', 'animate'));
+	wp_enqueue_style('animate');
+	// Hover.css
+	wp_register_style('hover', apply_filters('css_cdn_uri', THEME_URI . '/css/hover-min.css', 'hover'));
+	wp_enqueue_style('hover');
+
+
+	/* Scripts */
+	// Modernizr
+	wp_register_script('modernizr', apply_filters('js_cdn_uri', THEME_URI . '/js/modernizr.min.js', 'modernizr'));
+	wp_enqueue_script('modernizr');
+	// Bootstrap
+	wp_register_script('bootstrap', apply_filters('js_cdn_uri', THEME_URI . '/js/bootstrap.min.js', 'bootstrap'), array('jquery'), NULL, TRUE);
+	wp_enqueue_script('bootstrap');
+	// Bootstrap Alerts
+	wp_register_script('bootstrap-alerts', apply_filters('js_cdn_uri', THEME_URI . '/js/bootstrap-alerts.min.js', 'bootstrap-alerts'), array('jquery', 'bootstrap'), NULL, TRUE);
+	wp_enqueue_script('bootstrap-alerts');
+
+	/**
+	 * TODO: Importar y ajustar las actualizaciones
+	 */
+
 	// Bootstrap
 	wp_register_style('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', array(), '3.3.4');
 	wp_enqueue_style('bootstrap');
-	wp_register_script('bootstrap', '//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js', array('jquery'), '3.3.4', true);
-	wp_enqueue_script('bootstrap');
 
 	// Bootstrap Theme
 	wp_register_style('bootstrap-theme', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css', array('bootstrap'), '3.3.4');
 	wp_enqueue_style('bootstrap-theme');
-
-	// Animate.css
-	wp_register_style('animate', '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css', array('bootstrap'), '3.2.0');
-	wp_enqueue_style('animate');
-
-	// hover.css
-	wp_register_style('hover', get_template_directory_uri() . '/css/hover-min.css', array('bootstrap', 'animate'), '2.0.1');
-	wp_enqueue_style('hover');
 
 	// Font Awesome
 	wp_register_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array('bootstrap'), '4.3.0');
@@ -26,12 +45,8 @@ add_action('wp_enqueue_scripts', function () {
 	// jQuery Form
 	wp_enqueue_script('jquery-form');
 
-	// jQuery Bootstrap Alerts
-	wp_register_script('bootstrap-alerts', get_template_directory_uri() . '/js/bootstrap-alerts.js', array('jquery', 'bootstrap'), '1.0.2', true);
-	wp_enqueue_script('bootstrap-alerts');
-
 	// Add defer atribute
-	do_action('defer_script', array('jquery-form','bootstrap-alerts'));
+	do_action('defer_script', array('jquery-form', 'bootstrap-alerts'));
 
 	// Bootstrap complemetary text align
 	wp_register_style('bs-text-align', get_template_directory_uri() . '/css/bootstrap-text-align.css', array('bootstrap'), '1.0');
