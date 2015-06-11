@@ -28,6 +28,7 @@ function custom_theme_features()  {
 
 	// Add theme support for Translation
 	load_theme_textdomain( 'jp-basic', get_template_directory() . '/languages' );
+	
 }
 
 // Hook into the 'after_setup_theme' action
