@@ -1,6 +1,6 @@
 <?php
 
-if (!defined($name)) {
+if (!defined('THEME_URI')) {
 	define('THEME_URI', get_template_directory_uri());
 }
 
@@ -13,7 +13,6 @@ add_action('wp_enqueue_scripts', function () {
 	// Hover.css
 	wp_register_style('hover', apply_filters('css_cdn_uri', THEME_URI . '/css/hover-min.css', 'hover'));
 	wp_enqueue_style('hover');
-
 
 	/* Scripts */
 	// Modernizr
@@ -29,7 +28,6 @@ add_action('wp_enqueue_scripts', function () {
 	/**
 	 * TODO: Importar y ajustar las actualizaciones
 	 */
-
 	// Bootstrap
 	wp_register_style('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', array(), '3.3.4');
 	wp_enqueue_style('bootstrap');
@@ -49,11 +47,11 @@ add_action('wp_enqueue_scripts', function () {
 	do_action('defer_script', array('jquery-form', 'bootstrap-alerts'));
 
 	// Bootstrap complemetary text align
-	wp_register_style('bs-text-align', get_template_directory_uri() . '/css/bootstrap-text-align.css', array('bootstrap'), '1.0');
+	wp_register_style('bs-text-align', get_template_directory_uri() . '/css/bootstrap-text-align.min.css', array('bootstrap'), '1.0');
 	wp_enqueue_style('bs-text-align');
 
 	// Wordpress Core
-	wp_register_style('wordpress-core', get_template_directory_uri() . '/css/wordpress-core.css', array('bootstrap', 'bs-text-align'), '1.0');
+	wp_register_style('wordpress-core', get_template_directory_uri() . '/css/wordpress-core.min.css', array('bootstrap', 'bs-text-align'), '1.0');
 	wp_enqueue_style('wordpress-core');
 
 	// Theme
@@ -67,21 +65,4 @@ add_action('wp_enqueue_scripts', function () {
 	}
 });
 
-// Full theme supports
-add_action('after_setup_theme', function () {
-
-	// Add theme support for Automatic Feed Links
-	add_theme_support('automatic-feed-links');
-
-	// Add theme support for Post Formats
-	add_theme_support('post-formats', array('status', 'quote', 'gallery', 'image', 'video', 'audio', 'link', 'aside', 'chat'));
-
-	// Add theme support for Featured Images
-	add_theme_support('post-thumbnails');
-
-	// Add theme support for HTML5 Semantic Markup
-	add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption'));
-
-	// Add theme support for document Title tag
-	add_theme_support('title-tag');
-});
+include_once THEME_URI . '/includes/theme-features.php';
