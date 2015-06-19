@@ -17,6 +17,8 @@ add_action('wp_enqueue_scripts', function () {
 
 	/* Scripts */
 	wp_enqueue_script('modernizr');
+	wp_enqueue_script('jquery');
+	wp_enqueue_script('jquery-form');
 
 	// Bootstrap
 	wp_register_script('bootstrap', apply_filters('js_cdn_uri', THEME_URI . '/js/bootstrap.min.js', 'bootstrap'), array('jquery'), NULL, TRUE);
@@ -39,9 +41,6 @@ add_action('wp_enqueue_scripts', function () {
 	// Font Awesome
 	wp_register_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array('bootstrap'), '4.3.0');
 	wp_enqueue_style('font-awesome');
-
-	// jQuery Form
-	wp_enqueue_script('jquery-form');
 
 	// Add defer atribute
 	do_action('defer_script', array('jquery-form', 'bootstrap-alerts'));
