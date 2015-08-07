@@ -23,11 +23,9 @@ add_action('wp_enqueue_scripts', function () {
 	/* Scripts */
 	wp_enqueue_script('modernizr');
 	wp_enqueue_script('jquery');
+	wp_enqueue_script('bootstrap');
 	wp_enqueue_script('jquery-form');
 
-	// Bootstrap
-	wp_register_script('bootstrap', apply_filters('js_cdn_uri', THEME_URI . '/js/bootstrap.min.js', 'bootstrap'), array('jquery'), NULL, TRUE);
-	wp_enqueue_script('bootstrap');
 	// Bootstrap Alerts
 	wp_register_script('bootstrap-alerts', apply_filters('js_cdn_uri', THEME_URI . '/js/bootstrap-alerts.min.js', 'bootstrap-alerts'), array('jquery', 'bootstrap'), NULL, TRUE);
 	wp_enqueue_script('bootstrap-alerts');
