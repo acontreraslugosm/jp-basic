@@ -10,12 +10,21 @@
  Tags:        microformats, post-formats, custom-menu, featured-images
 
 */
+@import "less/lesshat.less";
+@import "less/bootstrap-text-align.less";
+@import "less/wordpress-core.less";
 
+.ellipsis {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 label.required:after {
-	content: '*';
-	display: inline-block;
-	color: red;
-	margin-left: 0.5em;
+    content: '*';
+    display: inline-block;
+    color: red;
+    margin-left: 0.5em;
 }
 
 #fbcomments, .fb-comments, .fb-comments iframe[style], .fb-comments span {
