@@ -1,4 +1,4 @@
-<nav class="text-center" itemscope itemtype="http://schema.org/SiteNavigationElement">
+<nav itemscope itemtype="http://schema.org/SiteNavigationElement">
 	<?php
 	$args = array(
 			'type' => 'list',
