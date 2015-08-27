@@ -18,8 +18,12 @@ if ( !defined( 'THEME_URI' ) ) {
 add_action( 'wp_enqueue_scripts', function () {
 
 	/* Styles */
+	wp_enqueue_style( 'bootstrap' );
 	wp_enqueue_style( 'animate' );
 	wp_enqueue_style( 'hover' );
+	wp_enqueue_style( 'font-awesome' );
+	// Theme
+	wp_enqueue_style( 'main-theme' );
 
 	/* Scripts */
 	wp_enqueue_script( 'modernizr' );
@@ -31,20 +35,11 @@ add_action( 'wp_enqueue_scripts', function () {
 	wp_register_script( 'bootstrap-alerts', apply_filters( 'js_cdn_uri', THEME_URI . '/js/bootstrap-alerts.min.js', 'bootstrap-alerts' ), array( 'jquery', 'bootstrap' ), NULL, TRUE );
 	wp_enqueue_script( 'bootstrap-alerts' );
 
-	/**
-	 * TODO: Importar y ajustar las actualizaciones
-	 */
-	// Bootstrap
-	wp_register_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', array(), '3.3.4' );
-	wp_enqueue_style( 'bootstrap' );
 
 	// Bootstrap Theme
 	wp_register_style( 'bootstrap-theme', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css', array( 'bootstrap' ), '3.3.4' );
 	wp_enqueue_style( 'bootstrap-theme' );
 
-	// Font Awesome
-	wp_register_style( 'font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array( 'bootstrap' ), '4.3.0' );
-	wp_enqueue_style( 'font-awesome' );
 
 	// Add defer atribute
 	do_action( 'defer_script', array( 'jquery-form', 'bootstrap-alerts' ) );
@@ -56,10 +51,6 @@ add_action( 'wp_enqueue_scripts', function () {
 	// Wordpress Core
 	wp_register_style( 'wordpress-core', THEME_URI . '/css/wordpress-core.min.css', array( 'bootstrap', 'bs-text-align' ), '1.0' );
 	wp_enqueue_style( 'wordpress-core' );
-
-	// Theme
-	wp_register_style( 'main-theme', THEME_URI . '/style.css', array(), '1.0' );
-	wp_enqueue_style( 'main-theme' );
 
 	if ( is_child_theme() ) {
 		// Theme
