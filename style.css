@@ -260,6 +260,18 @@ label.required:after {
   color: red;
   margin-left: 0.5em;
 }
+.responsive-helper {
+  position: fixed;
+  z-index: 99;
+  width: 50px;
+  left: 0;
+  top: 0;
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 50px;
+}
 #fbcomments,
 .fb-comments,
 .fb-comments iframe[style],
