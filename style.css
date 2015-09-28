@@ -218,6 +218,12 @@ Source: http://codex.wordpress.org/CSS
   z-index: 100000;
   /* Above WP toolbar. */
 }
+.no-margin {
+  margin: 0 !important;
+}
+.no-padding {
+  padding: 0 !important;
+}
 .loading:empty {
   /* Coloca un gif animado en un elemento vacío */
   background-image: url('images/loading.gif');

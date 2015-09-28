@@ -14,6 +14,14 @@
 @import "less/bootstrap-text-align.less";
 @import "less/wordpress-core.less";
 
+@lg: 1200px;
+@md: 992px;
+@sm: 768px;
+@xs: 480px;
+
+.no-margin { margin: 0 !important }
+.no-padding { padding: 0 !important}
+
 .loading:empty { /* Coloca un gif animado en un elemento vacío */
     background-image: url('images/loading.gif');
     background-repeat: no-repeat;
@@ -44,11 +52,6 @@ label.required:after {
     color: red;
     margin-left: 0.5em;
 }
-
-@lg: 1200px;
-@md: 992px;
-@sm: 768px;
-@xs: 480px;
 
 .responsive-helper {
     position: fixed;
