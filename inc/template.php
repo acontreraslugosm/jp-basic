@@ -1,9 +1,10 @@
 <?php
 
 /**
+ * Returns the Bootstrap breadcrumb
  * @return string
  */
-function get_the_breadcrumb() {
+function bs_get_breadcrumb() {
 	if ( is_home() ) return;
 
 	$items = array( 'Inicio' => home_url() );
@@ -58,15 +59,16 @@ function get_the_breadcrumb() {
 	foreach ( $items as $item => $value ) {
 		$breadcrumb .= sprintf( '<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><a href="%s" itemprop="item"><span itemprop="name">%s</span></a></li>', $value, $item );
 	}
-	$breadcrumb .= (!empty( $active )) ? sprintf( '<li class="active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">%s</li>', $active ) : '';
+	$breadcrumb .= (!empty( $active )) ? sprintf( '<li class="active" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">%s</li>', $active )
+						: '';
 	$breadcrumb .= '</ol>';
 
 	return $breadcrumb;
 }
 
 /**
- * Shows the breadcrumb
+ * Shows the Bootstrap breadcrumb
  */
-function the_breadcrumb() {
-	echo get_the_breadcrumb();
+function bs_breadcrumb() {
+	echo bs_get_breadcrumb();
 }
