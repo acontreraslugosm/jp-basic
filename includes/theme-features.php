@@ -27,7 +27,7 @@ if (!function_exists('custom_theme_features')) {
 		add_editor_style('editor-style.css');
 
 		// Add theme support for Translation
-		load_theme_textdomain('jp-basic', get_template_directory() . '/languages');
+		load_theme_textdomain(TEXT_DOMAIN, get_template_directory() . '/languages');
 	}
 
 // Hook into the 'after_setup_theme' action

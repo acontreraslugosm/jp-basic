@@ -1,10 +1,9 @@
 <?php
+
 /**
- * Define text domain
+ * Defines default text domain
  */
-if (!defined( 'TEXT_DOMAIN' )) {
-	define( 'TEXT_DOMAIN', 'jp-basic' );
-}
+defined( 'TEXT_DOMAIN' ) || define( 'TEXT_DOMAIN', 'jp-basic' );
 
 /**
  * Register People Post Type

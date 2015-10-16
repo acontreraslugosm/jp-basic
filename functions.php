@@ -1,9 +1,8 @@
 <?php
 
-// Disable File Editing
-if ( !defined( 'DISALLOW_FILE_EDIT' ) ) {
-	define( 'DISALLOW_FILE_EDIT', true );
-}
+// Constants
+defined( 'DISALLOW_FILE_EDIT' ) || define( 'DISALLOW_FILE_EDIT', TRUE );
+defined( 'TEXT_DOMAIN' ) || define( 'TEXT_DOMAIN', 'jp-basic' );
 
 include_once __DIR__ . '/includes/register-script.php';
 //include_once __DIR__ . '/includes/register-script-local.php';
