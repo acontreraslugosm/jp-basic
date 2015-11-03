@@ -39,6 +39,13 @@ Source: http://codex.wordpress.org/CSS
   margin-left: auto;
   margin-right: auto;
 }
+.post-content img.alignright,
+.post-content img.alignnone,
+.post-content img.alignleft,
+.post-content img.aligncenter {
+  max-width: 100%;
+  height: auto;
+}
 .post-content .wp-caption {
   background: #fff;
   border: 1px solid #f0f0f0;
