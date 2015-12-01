@@ -72,3 +72,4 @@ function bs_get_breadcrumb() {
 function bs_breadcrumb() {
 	echo bs_get_breadcrumb();
 }
+

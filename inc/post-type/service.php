@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Register Portfolio Post Type
+ * Register Service Post Type
  */
 add_action( 'init', function () {
 
 	$labels = array(
-		'name'                => __( 'Portfolio', TEXT_DOMAIN ),
-		'singular_name'       => __( 'Portfolio', TEXT_DOMAIN ),
-		'menu_name'           => __( 'Portfolio', TEXT_DOMAIN ),
-		'name_admin_bar'      => __( 'Portfolio', TEXT_DOMAIN ),
+		'name'                => __( 'Service', TEXT_DOMAIN ),
+		'singular_name'       => __( 'Service', TEXT_DOMAIN ),
+		'menu_name'           => __( 'Services', TEXT_DOMAIN ),
+		'name_admin_bar'      => __( 'Service', TEXT_DOMAIN ),
 		'parent_item_colon'   => __( 'Parent Item:', TEXT_DOMAIN ),
 		'all_items'           => __( 'All Items', TEXT_DOMAIN ),
 		'add_new_item'        => __( 'Add New Item', TEXT_DOMAIN ),
@@ -21,16 +21,16 @@ add_action( 'init', function () {
 		'search_items'        => __( 'Search Item', TEXT_DOMAIN ),
 	);
 	$rewrite = array(
-		'slug'                => _x( 'portfolio', 'slug', TEXT_DOMAIN ),
+		'slug'                => _x( 'service', 'slug', TEXT_DOMAIN ),
 		'with_front'          => true,
 		'pages'               => true,
 		'feeds'               => true,
 	);
 	$args = array(
-		'label'               => __( 'Portfolio', TEXT_DOMAIN ),
+		'label'               => __( 'Service', TEXT_DOMAIN ),
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
-		'taxonomies'          => array( 'portfolio_cat', 'portfolio_tag' ),
+		'taxonomies'          => array( 'service_cat', 'service_tag' ),
 		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
@@ -46,6 +46,6 @@ add_action( 'init', function () {
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'post',
 	);
-	register_post_type( 'portfolio', $args );
+	register_post_type( 'service', $args );
 
 }, 0 );

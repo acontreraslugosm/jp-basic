@@ -1,11 +1,6 @@
 <?php
 
 /**
- * Defines default text domain
- */
-defined( 'TEXT_DOMAIN' ) || define( 'TEXT_DOMAIN', 'jp-basic' );
-
-/**
  * Register Slide Post Type
  */
 add_action( 'init', function () {
@@ -24,8 +19,6 @@ add_action( 'init', function () {
 		'update_item'         => __( 'Update Item', TEXT_DOMAIN ),
 		'view_item'           => __( 'View Item', TEXT_DOMAIN ),
 		'search_items'        => __( 'Search Item', TEXT_DOMAIN ),
-		'not_found'           => __( 'Not found', TEXT_DOMAIN ),
-		'not_found_in_trash'  => __( 'Not found in Trash', TEXT_DOMAIN ),
 	);
 	$args = array(
 		'label'               => __( 'Carousel', TEXT_DOMAIN ),
@@ -39,7 +32,7 @@ add_action( 'init', function () {
 		'show_in_admin_bar'   => false,
 		'show_in_nav_menus'   => false,
 		'menu_icon'          => 'dashicons-slides',
-		'has_archive'         => true,		
+		'has_archive'         => true,
 		'exclude_from_search' => true,
 		'publicly_queryable'  => false,
 		'rewrite'             => false,
