@@ -20,11 +20,30 @@
 @sm: 768px;
 @xs: 480px;
 
+@media(max-width: @xs) {
+    .hidden-xxs {
+        display: none !important;
+    }
+    .visible-xxs {
+        display: block !important;
+    }
+    .visible-xxs-block {
+        display: block !important;
+    }
+    .visible-xxs-inline {
+        display: inline !important;
+    }
+    .visible-xss-inline-block {
+        display: inline-block !important;
+    }
+}
+
 /* Social */
 @facebook : #3A5795;
-@twitter: #5EA9DD;
-@instagram: #9D6B51;
 @google-plus: #DB4437;
+@instagram: #9D6B51;
+@linkedin: #0177B5;
+@twitter: #5EA9DD;
 
 .no-margin { margin: 0 !important }
 .no-padding { padding: 0 !important}

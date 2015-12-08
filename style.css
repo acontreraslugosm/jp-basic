@@ -226,6 +226,23 @@ Source: http://codex.wordpress.org/CSS
   /* Above WP toolbar. */
 }
 /* Breakpoints */
+@media (max-width: 480px) {
+  .hidden-xxs {
+    display: none !important;
+  }
+  .visible-xxs {
+    display: block !important;
+  }
+  .visible-xxs-block {
+    display: block !important;
+  }
+  .visible-xxs-inline {
+    display: inline !important;
+  }
+  .visible-xss-inline-block {
+    display: inline-block !important;
+  }
+}
 /* Social */
 .no-margin {
   margin: 0 !important;
