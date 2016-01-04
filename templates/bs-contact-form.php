@@ -1,4 +1,10 @@
-<form method="post" id="contact-form">
+<?php
+/**
+ * Formulario de contacto
+ * Requiere el plugin JP Theme Tools
+ */
+?>
+<form method="post" id="contact-form" action="">
 
 	<div class="form-group">
 		<label for="contact-name"><?php _e( 'Name', TEXT_DOMAIN ) ?></label>
@@ -18,7 +24,7 @@
 	<?php wp_nonce_field( 'send_contact_form' ) // requerido ?>
 	<input type="hidden" name="action" value="send_contact_form">
 
-	<button type="submit" class="form-control" class="btn btn-default" id="send"><?php _e( 'Submit', TEXT_DOMAIN ) ?></button>
+	<button type="submit" class="form-control" class="btn btn-default send-button"><?php _e( 'Submit', TEXT_DOMAIN ) ?></button>
 
 </form>
 
@@ -31,21 +37,21 @@
           dataType: 'json',
           beforeSubmit: function (formData, jqForm, options) {
               // optionally process data before submitting the form via AJAX
-              jQuery('#send').attr('disabled', '').text('<?php _e( 'Sending...', TEXT_DOMAIN ) ?>');
+              jQuery('#contact-form .send-button').attr('disabled', '').text('<?php _e( 'Sending...', TEXT_DOMAIN ) ?>');
           },
           success: function (response, statusText, xhr, $form) {
               // code that's executed when the request is processed successfully
-              jQuery('#send').removeAttr('disabled');
+              jQuery('#contact-form .send-button').removeAttr('disabled');
               if (response.success) {
-                  jQuery('#send').text('<?php _e( 'Sent!', TEXT_DOMAIN ) ?>');
+                  jQuery('#contact-form .send-button').text('<?php _e( 'Sent!', TEXT_DOMAIN ) ?>');
               } else {
-                  jQuery('#send').text('<?php _e( 'Error!', TEXT_DOMAIN ) ?>');
+                  jQuery('#contact-form .send-button').text('<?php _e( 'Error!', TEXT_DOMAIN ) ?>');
               }
           }
       });
 
       jQuery('#contact-form input, #contact-form textarea').focus(function () {
-          var buttonText = jQuery('#send').text();
+          var buttonText = jQuery('#contact-form .send-button').text();
           if (buttonText === '<?php _e( 'Error!', TEXT_DOMAIN ) ?>') {
               jQuery('#send').text('<?php _e( 'Submit', TEXT_DOMAIN ) ?>');
           }
