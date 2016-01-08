@@ -300,15 +300,32 @@ label.required:after {
 }
 .responsive-helper {
   position: fixed;
-  z-index: 99;
-  width: 50px;
+  z-index: 9999999;
   left: 0;
-  top: 0;
+  top: 150px;
   background-color: lightgray;
   color: black;
+  max-width: 100%;
   text-align: center;
   font-size: 2rem;
   line-height: 50px;
+}
+.responsive-helper .visible-xs,
+.responsive-helper .visible-sm,
+.responsive-helper .visible-md,
+.responsive-helper .visible-lg,
+.responsive-helper .show-modernizr {
+  width: 50px;
+}
+.responsive-helper .modernizr-features {
+  text-align: left;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  max-width: 100%;
+  white-space: initial;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 #fbcomments,
 .fb-comments,
