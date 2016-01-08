@@ -326,6 +326,7 @@ label.required:after {
   cursor: pointer;
   margin-left: 10px;
   margin-right: 10px;
+  word-break: keep-all;
 }
 #fbcomments,
 .fb-comments,
