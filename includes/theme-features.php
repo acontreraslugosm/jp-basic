@@ -24,6 +24,9 @@ if ( !function_exists( 'custom_theme_features' ) ) {
 		// Add theme support for document Title tag
 		add_theme_support( 'title-tag' );
 
+		// Add theme support for custom background
+		add_theme_support( 'custom-background' );
+
 		// Add theme support for custom CSS in the TinyMCE visual editor
 		add_editor_style( 'editor-style.css' );
 
