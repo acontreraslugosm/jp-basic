@@ -20,7 +20,7 @@
 @sm: 768px;
 @xs: 480px;
 
-@media(max-width: @xs) {
+@media(max-width: ( @xs - 1 )) {
     .hidden-xxs {
         display: none !important;
     }
@@ -35,6 +35,20 @@
     }
     .visible-xss-inline-block {
         display: inline-block !important;
+    }
+}
+@media (min-width: @xs) {
+    .visible-xxs {
+        display: none !important;
+    }
+    .visible-xxs-block {
+        display: none !important;
+    }
+    .visible-xxs-inline {
+        display: none !important;
+    }
+    .visible-xss-inline-block {
+        display: none !important;
     }
 }
 
@@ -80,11 +94,52 @@ label.required:after {
 }
 
 .responsive-helper {
+    .bs-breakpoint {
+        display: block;
+        border-right: 1px solid #666;
+        height: 30px;
+        background-color: #333;
+        color: white;
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        font-size: 1.3rem;
+        float: left;    
+    }
+    .modernizr-btn {
+        display: block;
+        height: 30px;
+        background-color: #333;
+        color: white;
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        font-size: 1.3rem;
+        float: left;
+        padding-left: 10px; 
+        padding-right: 10px;
+        border-right: 1px solid #666;
+        cursor: pointer;
+    }
+    .info-window {
+        display: block;
+        height: 30px;
+        background-color: #333;
+        color: white;
+        font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+        font-size: 1.3rem;
+        float: left;
+        padding-left: 10px; 
+        padding-right: 10px;
+        border-right: 1px solid #666;
+        > div {
+            text-align: left;
+        }
+        .info2 {
+            line-height: 15px;
+        }
+    }
     .visible-xs,
+    .visible-xxs,
     .visible-sm,
     .visible-md,
-    .visible-lg,
-    .show-modernizr {
+    .visible-lg{
         width: 50px;
     }
     .modernizr-features {
@@ -101,13 +156,13 @@ label.required:after {
     position: fixed;
     z-index: 9999999;
     left: 0;
-    top: 150px;
-    background-color: lightgray;
+    bottom: 0;
     color: black;
     max-width: 100%;
     text-align: center;
     font-size: 2rem;
-    line-height: 50px;
+    line-height: 30px;
+    font-family: Helvetica, sans-serif;
 }
 
 #fbcomments, .fb-comments, .fb-comments iframe[style], .fb-comments span {
