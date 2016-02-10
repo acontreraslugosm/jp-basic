@@ -1,58 +1,51 @@
-<div id="slider" class="flexslider loading">
-	<ul class="slides">
-		<li style="background: url('<?php echo THEME_URI ?>/images/slider_1.jpg') no-repeat center center">
-			<div class="slide-info">
-				<h2 class="slide-title">¿Buscando un lugar para vivir en Colombia?</h2>
-				<p class="slide-subtitle">Encontrar un hogar y los compañeros para compartir</p>
-			</div>
-		</li>
-		<li style="background: url('<?php echo THEME_URI ?>/images/slider_2.jpg') no-repeat center center">
-			<div class="slide-info">
-				<h2 class="slide-title">Be treated like a king</h2>
-				<p class="slide-subtitle">our King's Suite awaits</p>
-			</div>
-		</li>
-		<li style="background: url('<?php echo THEME_URI ?>/images/hero3.jpg') no-repeat center center">
-			<div class="slide-info">
-				<h2 class="slide-title">Experience epic beauty</h2>
-				<p class="slide-subtitle">and breath taking views</p>
-			</div>
-		</li>
-	</ul>
-</div> <!-- #slider -->
-
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<?php
+$args = array(
+		'posts_per_page' => -1,
+		'post_type' => 'slide'
+);
+$slides = get_posts( $args );
+if (count($slides) == 0) {
+	return;
+}
+?>
+<div id="main-carousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
-
+	<ol class="carousel-indicators">
+			<?php
+			for ( $i = 0; $i < count( $slides ); $i++ ) {
+				printf( '<li data-target="#main-carousel" data-slide-to="%d"></li>', $i );
+			}
+			?>
+	</ol>
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
-  </div>
+			<?php
+			global $post;
+			foreach ( $slides as $post ) {
+				setup_postdata( $post );
+				?>
+			<div class="item" role="presentation">
+					<?php the_post_thumbnail( 'carousel' ) ?>
+				<div class="carousel-caption">
+					<div><?php the_content() ?></div>
+				</div>
+			</div>
+			<?php
+		}
+		?>
+	</div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+  <a class="left carousel-control" href="#main-carousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+  <a class="right carousel-control" href="#main-carousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
 </div>
+<script>
+  jQuery('#main-carousel .carousel-indicators li').first().addClass('active');
+  jQuery('#main-carousel .carousel-inner .item').first().addClass('active');
+</script>
