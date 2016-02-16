@@ -413,6 +413,10 @@ label.required:after {
   margin-right: 10px;
   word-break: keep-all;
 }
+html,
+body {
+  text-rendering: geometricPrecision;
+}
 #fbcomments,
 .fb-comments,
 .fb-comments iframe[style],
