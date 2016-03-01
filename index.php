@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-sm-3">
 				<?php get_sidebar() ?>
-				<?php get_template_part( 'templates/sidebar-search' ) ?>
+				<?php // get_template_part( 'templates/sidebar-search' ) ?>
 			<a href="<?php echo wp_logout_url( home_url() ); ?>">logout</a>
 
 		</div>

@@ -4,11 +4,18 @@
 defined( 'DISALLOW_FILE_EDIT' ) || define( 'DISALLOW_FILE_EDIT', TRUE );
 defined( 'TEXT_DOMAIN' ) || define( 'TEXT_DOMAIN', 'jp-basic' );
 
+/** Constants */
+define( 'JPB_THEME_PATH', realpath( __DIR__ ) );
+
+
+
 include_once __DIR__ . '/includes/register-script.php';
 //include_once __DIR__ . '/includes/register-script-local.php';
 include_once __DIR__ . '/includes/register-style.php';
 //include_once __DIR__ . '/includes/register-style-local.php';
 include_once __DIR__ . '/includes/register-sidebar.php';
+
+include_once __DIR__ . '/widgets/bs-sidebar-search.php';
 
 if ( !defined( 'THEME_URI' ) ) {
 	define( 'THEME_URI', get_template_directory_uri() );
