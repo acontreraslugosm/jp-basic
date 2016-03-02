@@ -3,9 +3,9 @@
 // Register Script
 add_action( 'wp_enqueue_scripts', function () {
 	/* Hover.css v2.0.2	 */
-	wp_register_style( 'hover', '/css/hover-min.css', array(), '2.0.2', 'screen' );
+	wp_register_style( 'hover',  THEME_URI . '/css/hover-min.css', array(), '2.0.2', 'screen' );
 	/* Animate.css v2.0.2	 */
-	wp_register_style( 'animate', '/css/animate.min.css', array(), '3.3.0', 'screen' );
+	wp_register_style( 'animate',  THEME_URI . '/css/animate.min.css', array(), '3.3.0', 'screen' );
 	/* Bootstrap v3.3.5 */
 	wp_register_style( 'bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css', array(), '3.3.5' );
 	/* Font Awesome v4.4.0 */
