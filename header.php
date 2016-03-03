@@ -13,7 +13,7 @@
 	<body <?php body_class() ?> itemscope itemtype="http://schema.org/WebPage">
 
 		<?php
-		do_action( 'pre_main_content' );
+		do_action( 'before_main_content' );
 		get_template_part( 'components/bs-main-navbar' );
 		?>
 
