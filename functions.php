@@ -4,6 +4,7 @@
 defined( 'THEME_URI' ) || define( 'THEME_URI', get_template_directory_uri() );
 defined( 'THEME_PATH' ) || define( 'THEME_PATH', realpath( __DIR__ ) );
 
+include_once THEME_PATH . '/includes/functions.php';
 require_once THEME_PATH . '/includes/register-sidebar.php';
 
 // Constants
@@ -151,3 +152,5 @@ function safe_mailto( $email, $title = '', $attributes = '' ) {
 
 	return $output;
 }
+
+require_once __DIR__ . '/admin/admin.php';

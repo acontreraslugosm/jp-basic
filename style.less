@@ -212,3 +212,22 @@ html, body {
 .wp-caption-text,
 .gallery-caption {
 }
+
+/** Navbar */
+body.admin-bar.fixed-navbar {
+    padding-top: 32px;
+    #main-navbar > nav {
+        top: 32px;
+    }
+}
+@media (max-width: 782px) {
+    body.admin-bar.fixed-navbar {
+        padding-top: 46px;
+        #main-navbar > nav {
+            top: 46px;
+        }
+    }
+}
+#main-navbar .fluid-container .navbar-right:first-of-type {
+    margin-right: 0;
+}
