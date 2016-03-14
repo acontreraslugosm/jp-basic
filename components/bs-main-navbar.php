@@ -1,4 +1,8 @@
 <?php
+if ( !is_active_sidebar( 'main-navbar' ) ) {
+	return;
+}
+
 $position = get_theme_settings( 'main-navbar', 'position' ) ? : '';
 $wrapper = (!in_array( $position, array( 'navbar-static-top', 'navbar-fixed-top' ) )) ? 'container' : '';
 $container = get_theme_settings( 'main-navbar', 'container' ) ? : 'container';
