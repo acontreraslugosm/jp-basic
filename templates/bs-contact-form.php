@@ -18,13 +18,13 @@
 
 	<div class="form-group">
 		<label for="contact-comments"><?php _e( 'Comments', TEXT_DOMAIN ) ?></label>
-		<input type="text" class="form-control" name="contact-comments" id="contact-comments">
+		<textarea class="form-control" name="contact-comments" id="contact-comments"></textarea>
 	</div>
 
 	<?php wp_nonce_field( 'send_contact_form' ) // requerido ?>
 	<input type="hidden" name="action" value="send_contact_form">
 
-	<button type="submit" class="form-control" class="btn btn-default send-button"><?php _e( 'Submit', TEXT_DOMAIN ) ?></button>
+	<button type="submit" class="btn btn-default send-button"><?php _e( 'Submit', TEXT_DOMAIN ) ?></button>
 
 </form>
 
@@ -51,10 +51,7 @@
       });
 
       jQuery('#contact-form input, #contact-form textarea').focus(function () {
-          var buttonText = jQuery('#contact-form .send-button').text();
-          if (buttonText === '<?php _e( 'Error!', TEXT_DOMAIN ) ?>') {
-              jQuery('#send').text('<?php _e( 'Submit', TEXT_DOMAIN ) ?>');
-          }
+          jQuery('#send').text('<?php _e( 'Submit', TEXT_DOMAIN ) ?>');
       });
 
   });
