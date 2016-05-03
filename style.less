@@ -12,6 +12,7 @@
 */
 @import "less/lesshat.less";
 @import "less/bootstrap-text-align.less";
+@import "less/bootstrap-xxs.less";
 @import "less/wordpress-core.less";
 
 /* Breakpoints */
@@ -19,38 +20,6 @@
 @md: 992px;
 @sm: 768px;
 @xs: 480px;
-
-@media(max-width: ( @xs - 1 )) {
-    .hidden-xxs {
-        display: none !important;
-    }
-    .visible-xxs {
-        display: block !important;
-    }
-    .visible-xxs-block {
-        display: block !important;
-    }
-    .visible-xxs-inline {
-        display: inline !important;
-    }
-    .visible-xss-inline-block {
-        display: inline-block !important;
-    }
-}
-@media (min-width: @xs) {
-    .visible-xxs {
-        display: none !important;
-    }
-    .visible-xxs-block {
-        display: none !important;
-    }
-    .visible-xxs-inline {
-        display: none !important;
-    }
-    .visible-xss-inline-block {
-        display: none !important;
-    }
-}
 
 /* Social */
 @facebook : #3A5795;
